@@ -1,4 +1,4 @@
-Assignment 6
+Memory Game
 ============
 
-Add your files here.  The page should be called `index.html`.
+A memory game using Vue js.
