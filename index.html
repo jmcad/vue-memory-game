@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <main>
+        <div id="app">
+            <div id="start-wrapper">
+                <button @click="show = !show; shuffle();" v-if="!show" id="start">Start game</button>
+            </div>
+
+            <transition name="fade">
+
+                <div v-if="show" id="content">
+                    <div>
+
+                        <timer :timer="format" :initflipcount="flipcount"></timer>
+
+                    </div>
+                    <div class="gameboard">
+
+                        <card v-for="card in cards" :card="card" @increment="incrementflip" @card-id="cardHandler"
+                            @start-timer="startTimer">
+                        </card>
+
+                    </div>
+
+                    <div>
+
+                        <button @click="show = !show; reset();" id="exit">Exit</button>
+
+                    </div>
+                </div>
+
+            </transition>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+    <script src="counter.js"></script>
+    <script src="card.js"></script>
+
+</body>
+
+</html>
