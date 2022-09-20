@@ -41,10 +41,6 @@ var app = new Vue({
         selection2: null,
 
         correctCards: [],
-
-        p1Score: 0,
-
-        p2Score: 0
     },
 
     methods: {
@@ -135,7 +131,7 @@ var app = new Vue({
                     if (this.correctCards.length === this.cards.length) {
                         this.stopTimer();
                         setTimeout(() => {
-                            alert("Player 1 wins!")
+                            alert("Memory game cleared!")
                         }, 200);
                     }
 
@@ -157,7 +153,6 @@ var app = new Vue({
 
         reset: function () {
             this.flipcount = 0;
-            this.p1Score = 0;
             this.correctCards = [];
             this.stopTimer();
         }
